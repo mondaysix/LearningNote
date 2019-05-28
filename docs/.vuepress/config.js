@@ -38,6 +38,7 @@ module.exports={
 						['/swtest/test-report','缺陷报告的组成'],
 						['/swtest/test-app','app测试关注点'],
 						['/swtest/test-api','接口测试'],
+						['/swtest/test-selenium','selenium工作原理'],
 					]
 				},
 			],
@@ -47,6 +48,7 @@ module.exports={
 					collapsable:true,
 					children:[
 						 ['/java/Syntax','java常见基础知识'],
+						 ['/java/algorithm','算法题记录'],
 					]
 				},
 			],
