@@ -12,7 +12,7 @@ module.exports={
 		  { text: 'Home', link: '/' },
 		  {text:'Catagory',items:[
 				 { text: 'SoftwareTest', link: '/swtest/' },
-				 { text: 'Java', link: '/java/' },
+				 { text: 'Java', link: '/java/'	},
 				 { text: 'gitLearn', link: '/gitlearn/' },
 				 { text: 'Android', link: '/android/' },
 				 { text: 'MySQL', link: '/mysql/' },
@@ -49,6 +49,7 @@ module.exports={
 					children:[
 						 ['/java/Syntax','java常见基础知识'],
 						 ['/java/algorithm','算法题记录'],
+						 ['/java/tool-tutorial','Eclipse+Selenium安装教程'],
 					]
 				},
 			],
@@ -68,6 +69,7 @@ module.exports={
 					collapsable:true,
 					children:[
 						['/android/adbOperate','adb常用操作'],
+						['/android/appBase','app基础知识'],
 						
 					]
 				},
