@@ -1,17 +1,14 @@
-```yaml
 ---
 home: true
-heroImage: /hero.png
-actionText: 快速上手 →
-actionLink: /zh/guide/
+heroImage: /logo.jpg
+actionText: 开始阅读 →
+actionLink: /swtest/
 features:
-- title: 简洁至上
-  details: 以 Markdown 为中心的项目结构，以最少的配置帮助你专注于写作。
-- title: Vue驱动
-  details: 享受 Vue + webpack 的开发体验，在 Markdown 中使用 Vue 组件，同时可以使用 Vue 来开发自定义主题。
-- title: 高性能
-  details: VuePress 为每个页面预渲染生成静态的 HTML，同时在页面被加载的时候，将作为 SPA 运行。
-footer: MIT Licensed | Copyright © 2018-present Evan You
+- title: 积累
+  details: 平时工作中、学习中的积累，涉及的点涵盖软件测试、android、数据库等等
+- title: 软件测试
+  details: 软件测试的理论是实践最好的验证，本文档中花大量的篇幅进行软件测试的介绍和实践。
+- title: 持续更新
+  details: 本文档会持续更新下去，尽量每天更新一点知识积累，希望在自己学习的过程中也能给有相关问题的伙伴带来解决办法的参考。
+footer: MIT Licensed | Copyright © 2019-present Meiky
 ---
-```
-

@@ -13,6 +13,7 @@ module.exports={
 		  {text:'Catagory',items:[
 				 { text: 'SoftwareTest', link: '/swtest/' },
 				 { text: 'Java', link: '/java/'	},
+				 { text: 'WebLearn', link: '/weblearn/'	},
 				 { text: 'gitLearn', link: '/gitlearn/' },
 				 { text: 'Android', link: '/android/' },
 				 { text: 'MySQL', link: '/mysql/' },
@@ -28,7 +29,7 @@ module.exports={
 			'/swtest/':[
 				{
 					title:'swtest',
-					collapsable:true,
+					collapsable:false,
 					children:[
 						/** [路径，标题]*/
 						['/swtest/design-testcase1','基于用户登录场景设计测试用例'],
@@ -45,7 +46,7 @@ module.exports={
 			'/java/':[
 				{
 					title:'java',
-					collapsable:true,
+					collapsable:false,
 					children:[
 						 ['/java/Syntax','java常见基础知识'],
 						 ['/java/algorithm','算法题记录'],
@@ -53,10 +54,20 @@ module.exports={
 					]
 				},
 			],
+			'/weblearn/':[
+				{
+					title:'weblearn',
+					collapsable:false,
+					children:[
+						 ['/weblearn/vuepress-learn','VuePress'],
+						
+					]
+				},
+			],
 			'/gitlearn/':[
 				{
 					title:'git命令',
-					collapsable:true,
+					collapsable:false,
 					children:[
 						['/gitlearn/problems','常操作的命令'],
 						['/gitlearn/second','second'],
@@ -66,10 +77,11 @@ module.exports={
 			'/android/':[
 				{
 					title:'android',
-					collapsable:true,
+					collapsable:false,
 					children:[
 						['/android/adbOperate','adb常用操作'],
 						['/android/appBase','app基础知识'],
+						['/android/asOperate','AS使用'],
 						
 					]
 				},
@@ -77,7 +89,7 @@ module.exports={
 			'/mysql/':[
 					{
 					title:'mysql',
-					collapsable:true,
+					collapsable:false,
 					children:[
 						['/mysql/operate','operate'],
 					]
@@ -86,7 +98,7 @@ module.exports={
 			'/about/':[
 				{
 					title:'About',
-					collapsable:true,
+					collapsable:false,
 					children:[]
 				},
 				
@@ -94,7 +106,7 @@ module.exports={
 			'/VMware/':[
 				{
 					title:'VMware虚拟机',
-					collapsable:true,
+					collapsable:false,
 					children:[
 							['/VMware/VMwareUse','ubuntu虚拟机使用问题'],
 						]
@@ -104,7 +116,7 @@ module.exports={
 			'/':[
 				{
 					title:'home',
-					collapsable:true,
+					collapsable:false,
 					children:[
 						
 					]
