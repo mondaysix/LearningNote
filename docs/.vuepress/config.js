@@ -3,7 +3,7 @@ module.exports={
 	description:'Meiky blog',
 	themeConfig:{
 		sidebarDepth:4,
-		lastUpdated:'Last Updated',
+		lastUpdated:'最后更新时间',
 		displayAllHeaders: true,
 		/**
 			顶部导航栏
@@ -29,7 +29,7 @@ module.exports={
 			'/swtest/':[
 				{
 					title:'swtest',
-					collapsable:false,
+					collapsable:true,
 					children:[
 						/** [路径，标题]*/
 						['/swtest/design-testcase1','基于用户登录场景设计测试用例'],
@@ -39,6 +39,7 @@ module.exports={
 						['/swtest/test-report','缺陷报告的组成'],
 						['/swtest/test-app','app测试关注点'],
 						['/swtest/test-api','接口测试'],
+						['/swtest/test-gui','GUI测试'],
 						['/swtest/test-selenium','selenium工作原理'],
 					]
 				},
@@ -46,7 +47,7 @@ module.exports={
 			'/java/':[
 				{
 					title:'java',
-					collapsable:false,
+					collapsable:true,
 					children:[
 						 ['/java/Syntax','java常见基础知识'],
 						 ['/java/algorithm','算法题记录'],
@@ -57,7 +58,7 @@ module.exports={
 			'/weblearn/':[
 				{
 					title:'weblearn',
-					collapsable:false,
+					collapsable:true,
 					children:[
 						 ['/weblearn/vuepress-learn','VuePress'],
 						
@@ -67,7 +68,7 @@ module.exports={
 			'/gitlearn/':[
 				{
 					title:'git命令',
-					collapsable:false,
+					collapsable:true,
 					children:[
 						['/gitlearn/problems','常操作的命令'],
 						['/gitlearn/second','second'],
@@ -77,7 +78,7 @@ module.exports={
 			'/android/':[
 				{
 					title:'android',
-					collapsable:false,
+					collapsable:true,
 					children:[
 						['/android/adbOperate','adb常用操作'],
 						['/android/appBase','app基础知识'],
@@ -89,7 +90,7 @@ module.exports={
 			'/mysql/':[
 					{
 					title:'mysql',
-					collapsable:false,
+					collapsable:true,
 					children:[
 						['/mysql/operate','operate'],
 					]
@@ -98,7 +99,7 @@ module.exports={
 			'/about/':[
 				{
 					title:'About',
-					collapsable:false,
+					collapsable:true,
 					children:[]
 				},
 				
@@ -106,7 +107,7 @@ module.exports={
 			'/VMware/':[
 				{
 					title:'VMware虚拟机',
-					collapsable:false,
+					collapsable:true,
 					children:[
 							['/VMware/VMwareUse','ubuntu虚拟机使用问题'],
 						]
@@ -116,7 +117,7 @@ module.exports={
 			'/':[
 				{
 					title:'home',
-					collapsable:false,
+					collapsable:true,
 					children:[
 						
 					]
