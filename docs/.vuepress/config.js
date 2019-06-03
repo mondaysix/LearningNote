@@ -2,9 +2,10 @@ module.exports={
 	title:'Meiky blog',
 	description:'Meiky blog',
 	themeConfig:{
-		sidebarDepth:4,
+		sidebarDepth:2,
 		lastUpdated:'最后更新时间',
 		displayAllHeaders: true,
+		sidebar:'auto',
 		/**
 			顶部导航栏
 		*/
@@ -43,6 +44,7 @@ module.exports={
 						['/swtest/test-selenium','selenium工作原理'],
 					]
 				},
+				
 			],
 			'/java/':[
 				{

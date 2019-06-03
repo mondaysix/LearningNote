@@ -1,6 +1,8 @@
-# Android APP基础知识
+# Android 知识
 
-## Activity
+## 四大组件
+
+> **Activity**
 
 **生命周期**：onCreate()-->onStart()-->onResume()-->onPause()-->onStop()--->onRestart()-->onDestroy()
 
@@ -26,7 +28,7 @@ singleInstance(全局单例模式)：整个系统中只有一个
 
    	intent中动态指定：addFlags
 
-## Service
+> **Service**
 
 启动方式：startservice和bindservice
 
@@ -42,9 +44,16 @@ service需要注册在manifest
 
 两者的区别：startservice与客户端是否退出没有关联关系，即使客户端停止运行，服务同样也会在后台运行。bindservice是与客户端绑定的，客户端退出，service也自动停止
 
-## BroadcastReceiver
+**BroadcastReceiver**
 
 静态注册和动态注册
 
-## ContentProvider
+**ContentProvider**
 
+## AIDL
+
+Android Interface Definition Language，接口定义语言，**为了实现进程间的通信**
+
+每个进程都由自己的Dalvik VM实例，一块独立的内存，存储自己的数据，执行自己的操作。不同的进程不知道相互的信息，则出现了AIDL，通过AIDL制定一些规则，规定它们能进行哪些操作，一个进程可以访问另外一个进程的数据
+
+数据类实现Parcelable接口，将需要传输的数据转化为能够在内存之间流通的形式，即序列化与反序列化
