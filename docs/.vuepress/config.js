@@ -15,7 +15,7 @@ module.exports={
 				 { text: 'SoftwareTest', link: '/swtest/' },
 				 { text: 'Java', link: '/java/'	},
 				 { text: 'WebLearn', link: '/weblearn/'	},
-				 { text: 'gitLearn', link: '/gitlearn/' },
+				 { text: 'VersionControl', link: '/VersionControl/' },
 				 { text: 'Android', link: '/android/' },
 				 { text: 'MySQL', link: '/mysql/' },
 				 { text: 'VMware', link: '/VMware/' },
@@ -45,6 +45,7 @@ module.exports={
 					]
 				},
 				
+
 			],
 			'/java/':[
 				{
@@ -67,13 +68,21 @@ module.exports={
 					]
 				},
 			],
-			'/gitlearn/':[
+			'/VersionControl/':[
 				{
-					title:'git命令',
+					title:'git常用操作',
 					collapsable:true,
 					children:[
-						['/gitlearn/problems','常操作的命令'],
-						['/gitlearn/second','second'],
+						['/VersionControl/gitlearn/problems','常操作的命令'],
+						['/VersionControl/gitlearn/second','second'],
+					]
+				},
+				{
+					title:'svn常用操作',
+					collapsable:true,
+					children:[
+						['/VersionControl/svnlearn/problems','常操作的命令'],
+						['/VersionControl/svnlearn/second','second'],
 					]
 				},
 			],
@@ -128,5 +137,5 @@ module.exports={
 		},
 		
 	}
-	
+
 }
