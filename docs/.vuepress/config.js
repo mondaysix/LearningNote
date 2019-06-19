@@ -1,4 +1,4 @@
-module.exports={
+﻿module.exports={
 	title:'Meiky blog',
 	description:'Meiky blog',
 	themeConfig:{
@@ -74,7 +74,7 @@ module.exports={
 					collapsable:true,
 					children:[
 						['/VersionControl/gitlearn/problems','常操作的命令'],
-						['/VersionControl/gitlearn/second','second'],
+					
 					]
 				},
 				{
@@ -82,7 +82,7 @@ module.exports={
 					collapsable:true,
 					children:[
 						['/VersionControl/svnlearn/problems','常操作的命令'],
-						['/VersionControl/svnlearn/second','second'],
+						
 					]
 				},
 			],

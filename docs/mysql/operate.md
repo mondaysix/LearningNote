@@ -49,22 +49,22 @@
 
 输入正确用户名和密码登录失败，弹出access denied，可用跳过验证重新设置密码
 
-1. 使用管理员权限打开cmd,先看services.msc里的mysql服务是否已经关闭
+1. **使用管理员权限打开cmd**,先看services.msc里的mysql服务是否已经关闭
 
 2. ​	进入安装路径执行如下操作
 
    - [ ] cd C:\Program Files\MySQL\MySQL Server 5.7\bin
    - [ ] ​	mysqld --initialize
    - [ ] ​	mysqld --install mysql --defaults-file=C:\Program Files\MySQL\MySQL Server 5.7\my.ini
-   - [ ] ​	net stop mysql57
+   - [ ] ​	net stop mysql
    - [ ] ​	mysqld --skip-grant-tables
 
-3. ​	另外开一个cmd窗口，执行如下操作
+3. ​	同样使用管理员权限另外开一个cmd窗口，执行如下操作
 
    - [ ] mysql -u root
    - [ ] update user set authentication_string=password('123456') where user="root";
    - [ ] flush privileges;
-   - [ ] ​	关闭该窗口
+   - [ ] 关闭该窗口
 
 4. ​	再重新启动mysql服务
 
