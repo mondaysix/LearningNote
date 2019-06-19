@@ -11,6 +11,10 @@ hashmap继承abstractMap<K,V>，线程不安全,key允许为null,value允许为n
 hashtable继承Dictionary<K,V>,很多方法加了synchronized，所以是线程安全的。key和value都不允许为null，
 value为null抛出nullpointexception
 
+引用一个不错的学习两者区别的链接
+
+[读懂hashmap](<https://www.jianshu.com/p/ee0de4c99f87>)
+
 ## String Stringbuffer、stringbuilder区别
 
 **主要在运行速度和线程安全方面的区别**
@@ -77,6 +81,8 @@ keepAliveTime：线程空闲时的存活时间
 unit：keepaliveTime的单位
 workQueue：用来保存等待被执行的任务的阻塞队列，且实现runnable接口
 ```
+
+[**JAVA多线程之wait/notify**](https://www.cnblogs.com/hapjin/p/5492645.html)
 
 ### 进程
 

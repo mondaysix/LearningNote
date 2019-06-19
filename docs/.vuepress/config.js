@@ -44,8 +44,14 @@
 						['/swtest/test-selenium','selenium工作原理'],
 					]
 				},
-				
-
+				{
+					title:'测试辅助工具',
+					collapsable:true,
+					children:[
+						/** [路径，标题]*/
+						['/swtest/testTools/sonarqube','sonarqube'],
+					]
+				},
 			],
 			'/java/':[
 				{
@@ -55,6 +61,7 @@
 						 ['/java/Syntax','java常见基础知识'],
 						 ['/java/algorithm','算法题记录'],
 						 ['/java/tool-tutorial','Eclipse+Selenium安装教程'],
+						 ['/java/spring','spring学习'],
 					]
 				},
 			],

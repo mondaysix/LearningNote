@@ -1,3 +1,7 @@
+---
+typora-root-url: ..\.vuepress\public
+---
+
 ## mysql5.7服务无法启动问题
 
 以mysql 5.7.17 版本为例
@@ -118,3 +122,12 @@
 ​		trigger_stmt：触发器的程序体，可以是一条SQL语句或者是用BEGIN和END包含的多条语句
 ​	所以可以说MySQL创建以下六种触发器：BEFORE INSERT,BEFORE DELETE,BEFORE UPDATE,AFTER INSERT,AFTER DELETE,AFTER UPDATE
 
+## Mysql经常弹出提示框：Unable to connect to remote host. Catalog download has failed
+
+具体如下图：
+
+![shot1](/img/shot5.PNG)
+
+该问题是由于新版本的 Mysql 在安装的时候会自动在 Windows 的“任务计划程序”中安装一个定时任务
+
+打开“控制面板”，查看方式选择“小图标”，找到“管理工具”项，点击“任务计划程序”，找到列表中的MySQL->Installer选择名称为“ManifestUpdate”任务，右键菜单点击“禁用”项，完成任务禁用。也可以点击右侧的“禁用”

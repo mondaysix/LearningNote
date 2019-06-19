@@ -1,1 +1,1 @@
-android readme
+记录使用android系统和开发android APP、android工具等等过程中遇到的相关问题及解决方法
