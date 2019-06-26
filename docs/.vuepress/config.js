@@ -13,7 +13,7 @@
 		  { text: 'Home', link: '/' },
 		  {text:'Catagory',items:[
 				 { text: 'SoftwareTest', link: '/swtest/' },
-				 { text: 'Java', link: '/java/'	},
+				 { text: 'Language', link: '/Language/'	},
 				 { text: 'WebLearn', link: '/weblearn/'	},
 				 { text: 'VersionControl', link: '/VersionControl/' },
 				 { text: 'Android', link: '/android/' },
@@ -42,6 +42,8 @@
 						['/swtest/test-api','接口测试'],
 						['/swtest/test-gui','GUI测试'],
 						['/swtest/test-selenium','selenium工作原理'],
+						['/swtest/test-code','浅谈代码级测试'],
+						['/swtest/test-performance','浅谈性能测试'],
 					]
 				},
 				{
@@ -53,15 +55,23 @@
 					]
 				},
 			],
-			'/java/':[
+			'/Language/':[
 				{
 					title:'java',
 					collapsable:true,
 					children:[
-						 ['/java/Syntax','java常见基础知识'],
-						 ['/java/algorithm','算法题记录'],
-						 ['/java/tool-tutorial','Eclipse+Selenium安装教程'],
-						 ['/java/spring','spring学习'],
+						 ['/Language/java/Syntax','java常见基础知识'],
+						 ['/Language/java/algorithm','算法题记录'],
+						 ['/Language/java/tool-tutorial','Eclipse+Selenium安装教程'],
+						 ['/Language/java/spring','spring学习'],
+					]
+				},
+				{
+					title:'python',
+					collapsable:true,
+					children:[
+						 ['/Language/python/Syntax','python学习记录'],
+					
 					]
 				},
 			],

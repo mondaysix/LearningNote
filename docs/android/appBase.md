@@ -57,3 +57,82 @@ Android Interface Definition Language，接口定义语言，**为了实现进�
 每个进程都由自己的Dalvik VM实例，一块独立的内存，存储自己的数据，执行自己的操作。不同的进程不知道相互的信息，则出现了AIDL，通过AIDL制定一些规则，规定它们能进行哪些操作，一个进程可以访问另外一个进程的数据
 
 数据类实现Parcelable接口，将需要传输的数据转化为能够在内存之间流通的形式，即序列化与反序列化
+
+## View
+
+**PopupMenu**
+
+使用步骤：
+
+1、res目录下创建menu文件夹，用例存放菜单资源文件，比如新建一个case_item.xml
+
+```java
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item
+        android:id="@+id/test_fun1"
+        android:title="test_fun1"/>
+    <item
+        android:id="@+id/test_fun2"
+        android:title="test_fun1"/>
+</menu>
+
+```
+
+2、展示菜单项
+
+```java
+//创建PopupMenu对象
+PopupMenu popup=new PopupMenu(this, button);
+//将R.menu.popup_menu菜单资源加载到popup菜单中
+getMenuInflater().inflate(R.menu.case_item, popup.getMenu());
+//设置点击事件
+popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener(){
+			@Override
+			public boolean onMenuItemClick(MenuItem item) {
+                
+            }
+}
+//展示列表
+popup.show();
+//隐藏该对话框
+popup.dismiss();                           
+```
+
+**Adapter**
+
+BaseAdapter、ArrayAdapter、TreeListViewAdapter
+
+## 应用问题
+
+**app崩溃后自动重启问题**
+
+https://www.jianshu.com/p/eb34c5df30e5
+
+https://blog.csdn.net/BeyondWorlds/article/details/79759348
+
+```java
+public class CrashHandler implements Thread.UncaughtExceptionHandler {
+
+        public void init(Context ctx){
+            Thread.setDefaultUncaughtExceptionHandler(this);
+        }
+
+        @Override
+        public void uncaughtException(Thread thread, Throwable ex) {
+            if(ex.getCause() != null)
+                ex = ex.getCause();
+            StringBuilder errInfo = new StringBuilder(1024);
+            errInfo.append("uncaughtException: "+ex.toString()+"\n");
+            StackTraceElement[] stackTraceElements = ex.getStackTrace();
+            for (StackTraceElement ste : stackTraceElements) {
+                errInfo.append("\tat " + ste.toString() + "\n");
+            }
+
+            String info = errInfo.toString();
+            Log.err("exception", info);
+            System.exit(-1);//结束当前进程，关闭当前的JVM
+        }
+
+    }
+```
+

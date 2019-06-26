@@ -6,7 +6,7 @@ typora-root-url: ..\.vuepress\public
 
 以mysql 5.7.17 版本为例
 
-### 解决办法一
+**方式1**
 
 1. 进入mysql server安装的路径: cd C:\Program Files\MySQL\MySQL Server 5.7
 
@@ -32,20 +32,18 @@ typora-root-url: ..\.vuepress\public
 
 10. 退出数据库**exit**后重新使用新的密码登录即可
 
-
-
-### 解决办法二
+**方式2**
 
 启动services.msc里的mysql服务重新启动失败，提示“本地计算机上的MySQL服务启动后停止。某些服务在未由其他服务或程序使用时将自动”，可参考如下方式：
 
 1.首先需要把原来的服务删除，执行如下操作:
 
-- [ ] cd C:\Program Files\MySQL\MySQL Server 5.7
-- [ ] **mysqld --remove mysql**
-- [ ] 进入bin目录
-- [ ] **mysqld--initialize-insecure --user=mysql**
-- [ ] 注册服务**mysqld --install mysql --defaults-file=C:\Program Files\MySQL\MySQL Server 5.7\my.ini**
-- [ ] 启动服务:**net start mysql**
+- cd C:\Program Files\MySQL\MySQL Server 5.7
+- **mysqld --remove mysql**
+- 进入bin目录
+- **mysqld--initialize-insecure --user=mysql**
+- 注册服务**mysqld --install mysql --defaults-file=C:\Program Files\MySQL\MySQL Server 5.7\my.ini**
+- 启动服务:**net start mysql**
 
 
 
@@ -55,30 +53,37 @@ typora-root-url: ..\.vuepress\public
 
 1. **使用管理员权限打开cmd**,先看services.msc里的mysql服务是否已经关闭
 
-2. ​	进入安装路径执行如下操作
+2. 进入安装路径执行如下操作
 
-   - [ ] cd C:\Program Files\MySQL\MySQL Server 5.7\bin
-   - [ ] ​	mysqld --initialize
-   - [ ] ​	mysqld --install mysql --defaults-file=C:\Program Files\MySQL\MySQL Server 5.7\my.ini
-   - [ ] ​	net stop mysql
-   - [ ] ​	mysqld --skip-grant-tables
+   cd C:\Program Files\MySQL\MySQL Server 5.7\bin
 
-3. ​	同样使用管理员权限另外开一个cmd窗口，执行如下操作
+   mysqld --initialize
 
-   - [ ] mysql -u root
-   - [ ] update user set authentication_string=password('123456') where user="root";
-   - [ ] flush privileges;
-   - [ ] 关闭该窗口
+   mysqld --install mysql --defaults-file=C:\Program Files\MySQL\MySQL Server 5.7\my.ini
+
+   net stop mysql
+
+   mysqld --skip-grant-tables
+
+3. 同样使用管理员权限另外开一个cmd窗口，执行如下操作
+
+   mysql -u root
+
+   update user set authentication_string=password('123456') where user="root";
+
+   flush privileges;
+
+   关闭该窗口
 
 4. ​	再重新启动mysql服务
 
-   - [ ] net start mysql
+   net start mysql
 
-   - [ ] mysql -u root -p 输入之前修改的密码可正常登录
+   mysql -u root -p 输入之前修改的密码可正常登录
 
-   - [ ] 若是正常登录后提示“ERROR 1820 (HY000): You must reset your password using ALTER USER statement before executing this statement.”则执行alter user user() identified by "123456";
+   若是正常登录后提示“ERROR 1820 (HY000): You must reset your password using ALTER USER statement before executing this statement.”则执行alter user user() identified by "123456";
 
-     
+   
 
 ## 创建用户并赋予权限
 
@@ -122,7 +127,7 @@ typora-root-url: ..\.vuepress\public
 ​		trigger_stmt：触发器的程序体，可以是一条SQL语句或者是用BEGIN和END包含的多条语句
 ​	所以可以说MySQL创建以下六种触发器：BEFORE INSERT,BEFORE DELETE,BEFORE UPDATE,AFTER INSERT,AFTER DELETE,AFTER UPDATE
 
-## Mysql经常弹出提示框：Unable to connect to remote host. Catalog download has failed
+## MySQL经常弹出提示框：Unable to connect to remote host. Catalog download has failed
 
 具体如下图：
 
@@ -131,3 +136,95 @@ typora-root-url: ..\.vuepress\public
 该问题是由于新版本的 Mysql 在安装的时候会自动在 Windows 的“任务计划程序”中安装一个定时任务
 
 打开“控制面板”，查看方式选择“小图标”，找到“管理工具”项，点击“任务计划程序”，找到列表中的MySQL->Installer选择名称为“ManifestUpdate”任务，右键菜单点击“禁用”项，完成任务禁用。也可以点击右侧的“禁用”
+
+## 实践SQL语句
+
+```mysql
+## 创建、删除、查询数据库
+create database sonar character set utf8 collate utf8_general_ci;
+drop database sonarqubedb;
+show databases;
+
+## 创建用户并赋予权限
+CREATE USER 'sonaruser'@'%' IDENTIFIED BY '123456';
+create user 'sonaruser'@'localhost' identified by '123456';
+grant all on *.* to 'sonaruser'@'%';
+flush privileges;
+grant all on *.* to 'sonaruser'@'localhost';
+
+## 指定数据库下创建表
+use sonarqubedb;
+create table employee(
+	ename varchar(10),
+    hiredate date,
+    sal decimal(10,2),
+    deptno int(2)
+);
+create table dept(
+	deptno int(2),
+    deptname varchar(20)
+);
+## 查询表数据及表信息
+show tables;
+desc employee; -- 查看表信息
+show create table employee \G; -- 显示表详细信息
+-- information_schema 存储系统中一些数据库对象信息，比如用户表信息、权限信息、列信息等等
+-- mysql 存储系统的用户权限信息
+## 修改表的属性、数据等等操作
+alter table employee modify ename varchar(20);
+alter table employee add column age int(3);
+alter table employee drop column age;
+alter table employee change column age age1 int(4);
+alter table employee add birth date after ename;
+alter table employee modify age1 int(3) first;
+alter table employee rename employee1;
+/**
+	DML操作，主要是insert update delete select
+*/
+insert into employee(ename,sal) values('dony',1000),('dony2',2000);
+insert into employee(ename,sal,hiredate,deptno) values('zzz',100,'2019-1-1',1),('lisa',200,'2018-1-1',2),('qwe',100,'2017-1-1',1),('zzz',2000,'2016-1-1',4);
+update employee set ename='abc' where sal='1000';
+insert into dept(deptno,deptname) value(1,'tech'),(2,'sale'),(5,'test');
+insert into dept(deptno,deptname) value(6,'fin');
+update employee a,dept b set a.sal = a.sal*b.deptno,b.deptname=a.ename where a.deptno = b.deptno;
+
+delete from employee where ename='abc';
+select * from dept;
+update dept set deptname='hr' where deptno=2;
+select * from employee;
+select distinct deptno from employee order by deptno desc;
+
+select * from employee order by deptno,sal desc limit 1,4;
+select deptno,count(1) from employee group by deptno with rollup;
+select deptno,count(1) from employee group by deptno having count(1)>1;
+-- 表连接 内连接：仅选出两张表中互相匹配的记录，也就是两个表的交集
+select ename,deptname from employee,dept where employee.deptno=dept.deptno;
+-- 左（外）连接，将左表的记录全部显示出来，右表只会显示符合搜索条件的记录，右表记录不足的地方为null
+select ename,deptname from employee left join dept on employee.deptno = dept.deptno; 
+select ename,deptname from dept left join employee on dept.deptno = employee.deptno; 
+-- 右（外）连接，刚好与左连接相反
+
+-- 子查询
+select * from employee where deptno in(select deptno from dept);
+
+select deptno from employee union  select deptno from dept; -- union union all
+
+/**
+	DCL:DBA管理系统中的对象权限时用到
+*/
+grant select,insert on sonarqubedb.* to '' identified by 'root';
+-- 收回权限
+revoke insert,select on sonarqubedb.* from 'root@localhost';
+-- 命令行模式下，查看支持哪些数据类型 ? data types 若想知道具体某个数据类型的信息 ? int
+-- 快速查看某项语法，使用关键字进行快速查询 ? show
+-- https://dev.mysql.com/doc/
+-- 存储引擎
+create table myisam_char(name char(10)) engine=MyISAM;
+insert into myisam_char values("abc"),("abc  "),("  abc"),("  abc  ");
+select name,length(name) from myisam_char;
+show variables like 'table_type';
+show engines;
+
+
+```
+
