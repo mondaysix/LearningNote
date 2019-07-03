@@ -228,3 +228,15 @@ show engines;
 
 ```
 
+## 提示错误信息包含“SELECT list is not in group by clause and contains nonaggre”
+
+mysql5.7.5以上版本功能依赖检测功能，
+
+```mysql
+select @@global.sql_mode
+查询结果：
+ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+去掉only_full_group_by设置
+set@@global.sql_mode=’STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION’;
+```
+
