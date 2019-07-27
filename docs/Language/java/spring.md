@@ -12,7 +12,7 @@ Spring框架学习，推荐一个可快速了解相关知识的链接:
 
 方法里的参数前加@RequestParam(value="xxx")表示给参数进行别名处理
 
-### 基本数据类型
+**基本数据类型**
 
 ```java
 @RequestMapping(value="baseType.do")
@@ -24,7 +24,7 @@ public String baseType(@RequestParam(value="alias") int age){
 //结果：age：10
 ```
 
-### 包装数据类型
+**包装数据类型**
 
 ```java
 @RequestMapping(value="baseType.do2")
@@ -36,7 +36,7 @@ public String baseType(Integer age){
 //结果：age：10
 ```
 
-### 数组类型
+**数组类型**
 
 ```java
 @RequestMapping(value="array.do")
@@ -75,7 +75,7 @@ public class ContactPerson{
 //结果：User{name='qwe',age=12,ContactPerson{phone='12345',address='null'}}
 ```
 
-### 同属性的多对象
+**同属性的多对象**
 
 ```java
 @RequestMapping(value="object.do")
@@ -107,7 +107,7 @@ public class Admin{
 
 ```
 
-### List
+List
 
 ```java
 @RequestMapping(value="list.do")
@@ -125,11 +125,75 @@ public class User{
     private Admin am;
     ....
 }
-//访问地址http://xxx.xxx.xxx:8080/object.do?users[0].name=qwe&user[0].age=12&users[1].name=qwe
+//访问地址http://xxx.xxx.xxx:8080/list.do?users[0].name=qwe&user[0].age=12&users[1].name=qwe
 ```
 
-### Set
+Set
+
+```java
+
+```
 
 
 
-### Map
+Map
+
+```java
+@RequestMapping(value="map.do")
+@ResponseBody
+public String map(UserMapForm users){
+    return users.toString();
+}
+public class UserMapForm{
+    private Map<String，User> users;
+    ....
+}
+public class User{
+    private String name;
+    private String age;
+    private Admin am;
+    ....
+}
+//访问地址http://xxx.xxx.xxx:8080/map.do?users["x"].name=qwe&user["x"].age=12&users["Y"].name=qwe
+```
+
+
+
+JSON
+
+```java
+@RequestMapping(value="json.do")
+@ResponseBody
+public String map(@ResponseBody User user){
+    return user.toString();
+}
+/**
+	json数据：{
+		"name":"jim",
+		"age":16
+	}
+**/
+//访问地址http://xxx.xxx.xxx:8080/json.do
+```
+
+
+
+XML
+
+```java
+@XmlElement("admin")
+public class Admin{
+	@XmlElement("name")
+	public String name;
+	@XmlElement("age")
+	public String age;
+}
+/**
+	<?xml version="1.0" encoding="UTF-8" ?>
+	<admin>
+		<name>jim</name>
+		<age>16</age>
+	</admin>
+**/
+```
+

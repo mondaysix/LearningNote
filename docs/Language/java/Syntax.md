@@ -4,7 +4,7 @@
 
  三种方式得到Class：getClass()、类名.class、Class.forName("")
 
-## hashmap和hashtable区别
+**hashmap和hashtable区别**
 
 hashmap继承abstractMap<K,V>，线程不安全,key允许为null,value允许为null。get(object key)方法若返回null，可能是key不存在为null，也可能是key对应的value为null，所以不能通过get方法判断键是否存在，要使用containsKey
 
@@ -15,7 +15,7 @@ value为null抛出nullpointexception
 
 [读懂hashmap](<https://www.jianshu.com/p/ee0de4c99f87>)
 
-## String Stringbuffer、stringbuilder区别
+**String Stringbuffer、stringbuilder区别**
 
 **主要在运行速度和线程安全方面的区别**
 	运行速度：stringbuilder > stringbuffer > string
@@ -24,7 +24,7 @@ value为null抛出nullpointexception
 	Stringbuffer：线程安全，其中的append方法使用了synchoronized，导致效率比stringbuilder低
 stringbuilder：非线程安全，效率高于stringbuffer
 
-## java SE、EE、ME及框架
+java SE、EE、ME及框架
 
 SE：standard edition
 EE：enterprise edition
@@ -139,4 +139,24 @@ workQueue：用来保存等待被执行的任务的阻塞队列，且实现runna
 检测死锁：死锁发生后，采用一定的算法检测，确定与死锁相关的资源和进程，采取相关方法清除检测到的死锁
 
 解除死锁：对检测到的和死锁相关的进程以及资源，通过撤销或者挂起的方式，释放一些资源并将其分配给处于阻塞状态的进程
+
+## 枚举集合
+
+专为枚举设计的集合类,枚举类型继承自Enum类，EnumMap也是枚举集合。EnumSet中的元素不重复，EnumMap中的key是enum的类型，value可以是任意值
+
+```java
+//创建一个包含Demo枚举类里的所有枚举值的Enumset集合
+EnumSet.allof(Demo.class)
+//创建一个空的EnumSet
+EnumSet e = EnumSet.noneOf(Demo.class);
+//新增元素
+e.add(Demo.ONE)
+//以指定的枚举类创建集合
+EnumSet e = EnumSet.Of(Demo.ONE,Demo.TWO);    
+//遍历枚举类型
+Demo[] demoList = Demo.values();
+for(Demo demo : demoList){
+    System.out.println(demo.name())
+}
+```
 

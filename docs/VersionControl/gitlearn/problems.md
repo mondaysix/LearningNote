@@ -1,4 +1,4 @@
-## git查看/修改用户名和密码			
+**一、git查看/修改用户名和密码**			
 
 ​	在使用git进行push代码的时候，提示：The Requested URL return error 403，表示没有相关权限来push相关代码
 
@@ -17,24 +17,29 @@
       		git config user.email
 5. 修改用户名和邮箱地址:
    		git config --global user.name "username"
-      		git config --global user.email "email"
+      		git config --global user.email "email"	
 
-​		
+**二、更新代码至远程仓库流程**	
 
-## 更新代码至远程仓库流程	
+***提交代码前确认当前的分支以及先更新最新的代码！！！***
+
+git branch 查看当前分支
+
+git pull 更新代码至本地
 
 1. git status 查看当前工程中modified了哪些文件
 2. git add . 一次性添加所有修改过的文件
 3. git commit -m "修改的相关描述XXX"
 4. git push origin master 推送到git 远程仓库
+5. git log 查看提交日志
 
-## 更新远程代码至本地
+**三、更新远程代码至本地**
 
 git pull -u origin master:<分支名称>
 
 默认可直接使用git pull
 
-## 将文件添加至Index暂存
+**四、将文件添加至Index暂存**
 
 git add用于把要提交的文件的信息添加到索引库中
 
@@ -44,7 +49,7 @@ git add用于把要提交的文件的信息添加到索引库中
 
 **git add -A**   是上面两个命令的功能合集
 
-## 删除远程仓库里的文件夹
+**五、删除远程仓库里的文件夹**
 
 1. git clone <远程仓库地址>
 2. git rm -rf <需要删除的文件夹>
@@ -54,13 +59,13 @@ git add用于把要提交的文件的信息添加到索引库中
 
 如果分支的名称不是master，则提交到git仓库 时，需要显示指定分支名称 git push -u origin master：<分支名称>
 
-## 分支相关操作
+**六、分支相关操作**
 
 1. git branch 查看当前分支
 2. git checkout <分支名称> 切换到新的分支
 3. git branch <新分支名称>创建新的分支
 
-## 使用ssh密钥
+**七、使用ssh密钥**
 
 SSH 公钥默认储存在账户的主目录下的 ~/.ssh 目录
 
@@ -76,9 +81,8 @@ SSH 公钥默认储存在账户的主目录下的 ~/.ssh 目录
 
 6. 验证下key是否可以正常工作 ssh -T git@github.com
 
-   
 
-## 下载github仓库中的部分文件夹
+**八、下载github仓库中的部分文件夹**
 
 git版本>2.17.1
 

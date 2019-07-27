@@ -18,7 +18,7 @@
 				 { text: 'VersionControl', link: '/VersionControl/' },
 				 { text: 'Android', link: '/android/' },
 				 { text: 'MySQL', link: '/mysql/' },
-				 { text: 'VMware', link: '/VMware/' },
+				 { text: 'Others', link: '/Others/' },
 			 ]
 		   },
 		  {text:'About',link:'/about/'}
@@ -44,6 +44,7 @@
 						['/swtest/test-selenium','selenium工作原理'],
 						['/swtest/test-code','浅谈代码级测试'],
 						['/swtest/test-performance','浅谈性能测试'],
+						['/swtest/test-search','测试主题'],
 					]
 				},
 				{
@@ -132,12 +133,12 @@
 				},
 				
 		    ],
-			'/VMware/':[
+			'/Others/':[
 				{
-					title:'VMware虚拟机',
+					title:'OtherProblems',
 					collapsable:true,
 					children:[
-							['/VMware/VMwareUse','ubuntu虚拟机使用问题'],
+							
 						]
 				},
 				

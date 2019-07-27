@@ -4,7 +4,7 @@ typora-root-url: ..\.vuepress\public
 
 # Eclipse + selenium环境搭建
 
-## Jdk
+**Jdk**
 
 Jdk可自行在Oracle官网下载，这里主要讲jdk环境变量的配置,以java8在windows10上安装为例：
 
@@ -20,19 +20,19 @@ Jdk可自行在Oracle官网下载，这里主要讲jdk环境变量的配置,以j
 
 如果要查看当前java的版本，使用命令java -version 
 
-## eclipse
+**eclipse**
 
 Eclipse软件可在官网进行下载<https://www.eclipse.org/downloads/>下载后可默认安装或者自定义，看个人需要
 
 
 
-## selenium
+**selenium**
 
 在eclipse里用的话，基础的包需要下载selenium-server-standalone-3.9.1.jar和selenium-java-3.141.59.zip 下载地址：<https://selenium-release.storage.googleapis.com/index.html> 根据个人需要下载相应的版本
 
 
 
-## 浏览器firefox、chrome、IE等等
+**浏览器firefox、chrome、IE等等**
 
    使用selenium webdriver来对web页面进行不同的操作，可使用不同的浏览器，如firefox、chrome、IE等等，新建一个java project后需要把selenium相关的包添加到工程下，如图：
 
